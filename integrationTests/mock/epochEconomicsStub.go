@@ -1,0 +1,37 @@
+package mock
+
+import (
+	"math/big"
+
+	"github.com/TerraDharitri/drt-go-chain-core/data"
+	"github.com/TerraDharitri/drt-go-chain-core/data/block"
+)
+
+// EpochEconomicsStub -
+type EpochEconomicsStub struct {
+	ComputeEndOfEpochEconomicsCalled func(metaBlock data.MetaHeaderHandler) (*block.Economics, error)
+	VerifyRewardsPerBlockCalled      func(
+		metaBlock data.MetaHeaderHandler, correctedProtocolSustainability *big.Int, computedEconomics *block.Economics,
+	) error
+}
+
+// ComputeEndOfEpochEconomics -
+func (e *EpochEconomicsStub) ComputeEndOfEpochEconomics(metaBlock data.MetaHeaderHandler) (*block.Economics, error) {
+	if e.ComputeEndOfEpochEconomicsCalled != nil {
+		return e.ComputeEndOfEpochEconomicsCalled(metaBlock)
+	}
+	return &block.Economics{}, nil
+}
+
+// VerifyRewardsPerBlock -
+func (e *EpochEconomicsStub) VerifyRewardsPerBlock(metaBlock data.MetaHeaderHandler, correctedProtocolSustainability *big.Int, computedEconomics *block.Economics) error {
+	if e.VerifyRewardsPerBlockCalled != nil {
+		return e.VerifyRewardsPerBlockCalled(metaBlock, correctedProtocolSustainability, computedEconomics)
+	}
+	return nil
+}
+
+// IsInterfaceNil -
+func (e *EpochEconomicsStub) IsInterfaceNil() bool {
+	return e == nil
+}

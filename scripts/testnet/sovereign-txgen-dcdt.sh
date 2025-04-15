@@ -1,0 +1,1 @@
+./txgen-dcdt.sh intra

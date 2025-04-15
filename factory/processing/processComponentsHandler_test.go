@@ -1,0 +1,261 @@
+package processing_test
+
+import (
+	"fmt"
+	"testing"
+
+	"github.com/TerraDharitri/drt-go-chain/common"
+	errorsDrt "github.com/TerraDharitri/drt-go-chain/errors"
+	"github.com/TerraDharitri/drt-go-chain/factory"
+	processComp "github.com/TerraDharitri/drt-go-chain/factory/processing"
+	"github.com/TerraDharitri/drt-go-chain/process/mock"
+	componentsMock "github.com/TerraDharitri/drt-go-chain/testscommon/components"
+	"github.com/TerraDharitri/drt-go-chain/testscommon/mainFactoryMocks"
+
+	"github.com/TerraDharitri/drt-go-chain-core/core"
+	"github.com/TerraDharitri/drt-go-chain-core/core/check"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestNewManagedProcessComponents(t *testing.T) {
+	t.Parallel()
+
+	t.Run("nil factory should error", func(t *testing.T) {
+		t.Parallel()
+
+		managedProcessComponents, err := processComp.NewManagedProcessComponents(nil)
+		require.Equal(t, errorsDrt.ErrNilProcessComponentsFactory, err)
+		require.Nil(t, managedProcessComponents)
+	})
+	t.Run("should work", func(t *testing.T) {
+		t.Parallel()
+
+		processComponentsFactory, _ := processComp.NewProcessComponentsFactory(createMockProcessComponentsFactoryArgs())
+		managedProcessComponents, err := processComp.NewManagedProcessComponents(processComponentsFactory)
+		require.NoError(t, err)
+		require.NotNil(t, managedProcessComponents)
+	})
+}
+
+func TestManagedProcessComponents_CreateShouldWork(t *testing.T) {
+	t.Parallel()
+	if testing.Short() {
+		t.Skip("this is not a short test")
+	}
+
+	testManagedProcessComponentsCreateShouldWork(t, common.MetachainShardId, componentsMock.GetRunTypeCoreComponents(), getRunTypeComponentsMock())
+	testManagedProcessComponentsCreateShouldWork(t, 0, componentsMock.GetRunTypeCoreComponents(), getRunTypeComponentsMock())
+	testManagedProcessComponentsCreateShouldWork(t, core.SovereignChainShardId, componentsMock.GetRunTypeCoreComponents(), getSovereignRunTypeComponentsMock())
+}
+
+func testManagedProcessComponentsCreateShouldWork(t *testing.T, shardID uint32, rttc factory.RunTypeCoreComponentsHolder, rtc *mainFactoryMocks.RunTypeComponentsStub) {
+
+	shardCoordinator := mock.NewMultiShardsCoordinatorMock(1)
+	shardCoordinator.CurrentShard = shardID
+
+	shardCoordinator.ComputeIdCalled = func(address []byte) uint32 {
+		if core.IsSmartContractOnMetachain(address[len(address)-1:], address) {
+			return core.MetachainShardId
+		}
+		return 0
+	}
+
+	args := createProcessComponentsFactoryArgs(rttc, rtc)
+	componentsMock.SetShardCoordinator(t, args.BootstrapComponents, shardCoordinator)
+	processComponentsFactory, _ := processComp.NewProcessComponentsFactory(args)
+	managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+	require.NotNil(t, managedProcessComponents)
+
+	require.True(t, check.IfNil(managedProcessComponents.NodesCoordinator()))
+	require.True(t, check.IfNil(managedProcessComponents.InterceptorsContainer()))
+	require.True(t, check.IfNil(managedProcessComponents.ResolversContainer()))
+	require.True(t, check.IfNil(managedProcessComponents.RequestersFinder()))
+	require.True(t, check.IfNil(managedProcessComponents.RoundHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.ForkDetector()))
+	require.True(t, check.IfNil(managedProcessComponents.BlockProcessor()))
+	require.True(t, check.IfNil(managedProcessComponents.EpochStartTrigger()))
+	require.True(t, check.IfNil(managedProcessComponents.EpochStartNotifier()))
+	require.True(t, check.IfNil(managedProcessComponents.BlackListHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.BootStorer()))
+	require.True(t, check.IfNil(managedProcessComponents.HeaderSigVerifier()))
+	require.True(t, check.IfNil(managedProcessComponents.ValidatorsStatistics()))
+	require.True(t, check.IfNil(managedProcessComponents.ValidatorsProvider()))
+	require.True(t, check.IfNil(managedProcessComponents.BlockTracker()))
+	require.True(t, check.IfNil(managedProcessComponents.PendingMiniBlocksHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.RequestHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.TxLogsProcessor()))
+	require.True(t, check.IfNil(managedProcessComponents.HeaderConstructionValidator()))
+	require.True(t, check.IfNil(managedProcessComponents.HeaderIntegrityVerifier()))
+	require.True(t, check.IfNil(managedProcessComponents.CurrentEpochProvider()))
+	require.True(t, check.IfNil(managedProcessComponents.NodeRedundancyHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.WhiteListHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.WhiteListerVerifiedTxs()))
+	require.True(t, check.IfNil(managedProcessComponents.RequestedItemsHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.ImportStartHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.HistoryRepository()))
+	require.True(t, check.IfNil(managedProcessComponents.APITransactionEvaluator()))
+	require.True(t, check.IfNil(managedProcessComponents.FallbackHeaderValidator()))
+	require.True(t, check.IfNil(managedProcessComponents.PeerShardMapper()))
+	require.True(t, check.IfNil(managedProcessComponents.ShardCoordinator()))
+	require.True(t, check.IfNil(managedProcessComponents.TxsSenderHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.HardforkTrigger()))
+	require.True(t, check.IfNil(managedProcessComponents.ProcessedMiniBlocksTracker()))
+	require.True(t, check.IfNil(managedProcessComponents.AccountsParser()))
+	require.True(t, check.IfNil(managedProcessComponents.ScheduledTxsExecutionHandler()))
+	require.True(t, check.IfNil(managedProcessComponents.DCDTDataStorageHandlerForAPI()))
+	require.True(t, check.IfNil(managedProcessComponents.ReceiptsRepository()))
+	require.True(t, check.IfNil(managedProcessComponents.FullArchivePeerShardMapper()))
+	require.True(t, check.IfNil(managedProcessComponents.FullArchiveInterceptorsContainer()))
+	require.True(t, check.IfNil(managedProcessComponents.SentSignaturesTracker()))
+	require.True(t, check.IfNil(managedProcessComponents.EpochSystemSCProcessor()))
+
+	err := managedProcessComponents.Create()
+	require.NoError(t, err)
+	require.False(t, check.IfNil(managedProcessComponents.NodesCoordinator()))
+	require.False(t, check.IfNil(managedProcessComponents.InterceptorsContainer()))
+	require.False(t, check.IfNil(managedProcessComponents.ResolversContainer()))
+	require.False(t, check.IfNil(managedProcessComponents.RequestersFinder()))
+	require.False(t, check.IfNil(managedProcessComponents.RoundHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.ForkDetector()))
+	require.False(t, check.IfNil(managedProcessComponents.BlockProcessor()))
+	require.False(t, check.IfNil(managedProcessComponents.EpochStartTrigger()))
+	require.False(t, check.IfNil(managedProcessComponents.EpochStartNotifier()))
+	require.False(t, check.IfNil(managedProcessComponents.BlackListHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.BootStorer()))
+	require.False(t, check.IfNil(managedProcessComponents.HeaderSigVerifier()))
+	require.False(t, check.IfNil(managedProcessComponents.ValidatorsStatistics()))
+	require.False(t, check.IfNil(managedProcessComponents.ValidatorsProvider()))
+	require.False(t, check.IfNil(managedProcessComponents.BlockTracker()))
+	require.False(t, check.IfNil(managedProcessComponents.PendingMiniBlocksHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.RequestHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.TxLogsProcessor()))
+	require.False(t, check.IfNil(managedProcessComponents.HeaderConstructionValidator()))
+	require.False(t, check.IfNil(managedProcessComponents.HeaderIntegrityVerifier()))
+	require.False(t, check.IfNil(managedProcessComponents.CurrentEpochProvider()))
+	require.False(t, check.IfNil(managedProcessComponents.NodeRedundancyHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.WhiteListHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.WhiteListerVerifiedTxs()))
+	require.False(t, check.IfNil(managedProcessComponents.RequestedItemsHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.ImportStartHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.HistoryRepository()))
+	require.False(t, check.IfNil(managedProcessComponents.APITransactionEvaluator()))
+	require.False(t, check.IfNil(managedProcessComponents.FallbackHeaderValidator()))
+	require.False(t, check.IfNil(managedProcessComponents.PeerShardMapper()))
+	require.False(t, check.IfNil(managedProcessComponents.ShardCoordinator()))
+	require.False(t, check.IfNil(managedProcessComponents.TxsSenderHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.HardforkTrigger()))
+	require.False(t, check.IfNil(managedProcessComponents.ProcessedMiniBlocksTracker()))
+	require.False(t, check.IfNil(managedProcessComponents.AccountsParser()))
+	require.False(t, check.IfNil(managedProcessComponents.ScheduledTxsExecutionHandler()))
+	require.False(t, check.IfNil(managedProcessComponents.DCDTDataStorageHandlerForAPI()))
+	require.False(t, check.IfNil(managedProcessComponents.ReceiptsRepository()))
+	require.False(t, check.IfNil(managedProcessComponents.FullArchivePeerShardMapper()))
+	require.False(t, check.IfNil(managedProcessComponents.FullArchiveInterceptorsContainer()))
+	require.False(t, check.IfNil(managedProcessComponents.SentSignaturesTracker()))
+	require.False(t, check.IfNil(managedProcessComponents.EpochSystemSCProcessor()))
+
+}
+
+func TestManagedProcessComponents_Create(t *testing.T) {
+	t.Parallel()
+
+	t.Run("invalid params should error", func(t *testing.T) {
+		t.Parallel()
+
+		args := createMockProcessComponentsFactoryArgs()
+		args.Config.PublicKeyPeerId.Type = "invalid"
+		processComponentsFactory, _ := processComp.NewProcessComponentsFactory(args)
+		managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+		require.NotNil(t, managedProcessComponents)
+
+		err := managedProcessComponents.Create()
+		require.Error(t, err)
+	})
+	t.Run("meta should create meta components", func(t *testing.T) {
+		t.Parallel()
+
+		shardCoordinator := mock.NewMultiShardsCoordinatorMock(1)
+		shardCoordinator.CurrentShard = core.MetachainShardId
+		shardCoordinator.ComputeIdCalled = func(address []byte) uint32 {
+			if core.IsSmartContractOnMetachain(address[len(address)-1:], address) {
+				return core.MetachainShardId
+			}
+			return 0
+		}
+
+		args := createMockProcessComponentsFactoryArgs()
+		componentsMock.SetShardCoordinator(t, args.BootstrapComponents, shardCoordinator)
+		processComponentsFactory, _ := processComp.NewProcessComponentsFactory(args)
+		managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+		_ = managedProcessComponents.Create()
+
+		assert.Equal(t, "*sync.metaForkDetector", fmt.Sprintf("%T", managedProcessComponents.ForkDetector()))
+		assert.Equal(t, "*track.metaBlockTrack", fmt.Sprintf("%T", managedProcessComponents.BlockTracker()))
+	})
+	t.Run("shard should create shard components", func(t *testing.T) {
+		t.Parallel()
+
+		shardCoordinator := mock.NewMultiShardsCoordinatorMock(1)
+		shardCoordinator.CurrentShard = 0
+		args := createMockProcessComponentsFactoryArgs()
+		componentsMock.SetShardCoordinator(t, args.BootstrapComponents, shardCoordinator)
+		processComponentsFactory, _ := processComp.NewProcessComponentsFactory(args)
+		managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+		_ = managedProcessComponents.Create()
+
+		assert.Equal(t, "*sync.shardForkDetector", fmt.Sprintf("%T", managedProcessComponents.ForkDetector()))
+		assert.Equal(t, "*track.shardBlockTrack", fmt.Sprintf("%T", managedProcessComponents.BlockTracker()))
+	})
+	t.Run("sovereign should create sovereign components", func(t *testing.T) {
+		t.Parallel()
+
+		args := createMockSovereignProcessComponentsFactoryArgs()
+		processComponentsFactory, _ := processComp.NewProcessComponentsFactory(args)
+		managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+		_ = managedProcessComponents.Create()
+		assert.Equal(t, "*sync.sovereignChainShardForkDetector", fmt.Sprintf("%T", managedProcessComponents.ForkDetector()))
+		assert.Equal(t, "*track.sovereignChainShardBlockTrack", fmt.Sprintf("%T", managedProcessComponents.BlockTracker()))
+	})
+
+}
+
+func TestManagedProcessComponents_CheckSubcomponents(t *testing.T) {
+	t.Parallel()
+
+	processComponentsFactory, _ := processComp.NewProcessComponentsFactory(createMockProcessComponentsFactoryArgs())
+	managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+	require.NotNil(t, managedProcessComponents)
+	require.Equal(t, errorsDrt.ErrNilProcessComponents, managedProcessComponents.CheckSubcomponents())
+
+	err := managedProcessComponents.Create()
+	require.NoError(t, err)
+
+	require.Nil(t, managedProcessComponents.CheckSubcomponents())
+}
+
+func TestManagedProcessComponents_Close(t *testing.T) {
+	t.Parallel()
+
+	processComponentsFactory, _ := processComp.NewProcessComponentsFactory(createMockProcessComponentsFactoryArgs())
+	managedProcessComponents, _ := processComp.NewManagedProcessComponents(processComponentsFactory)
+	err := managedProcessComponents.Create()
+	require.NoError(t, err)
+
+	err = managedProcessComponents.Close()
+	require.NoError(t, err)
+
+	err = managedProcessComponents.Close()
+	require.NoError(t, err)
+}
+
+func TestManagedProcessComponents_IsInterfaceNil(t *testing.T) {
+	t.Parallel()
+
+	managedProcessComponents, _ := processComp.NewManagedProcessComponents(nil)
+	require.True(t, managedProcessComponents.IsInterfaceNil())
+
+	processComponentsFactory, _ := processComp.NewProcessComponentsFactory(createMockProcessComponentsFactoryArgs())
+	managedProcessComponents, _ = processComp.NewManagedProcessComponents(processComponentsFactory)
+	require.False(t, managedProcessComponents.IsInterfaceNil())
+}

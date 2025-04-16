@@ -501,10 +501,7 @@ func (m *ScResultsHashesAndEpoch) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthResultsHashesByTxHash
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthResultsHashesByTxHash
 			}
 			if (iNdEx + skippy) > l {
@@ -622,10 +619,7 @@ func (m *ResultsHashesByTxHash) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthResultsHashesByTxHash
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthResultsHashesByTxHash
 			}
 			if (iNdEx + skippy) > l {

@@ -1194,10 +1194,7 @@ func (m *SerializableValidator) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 			}
 			if (iNdEx + skippy) > l {
@@ -1281,10 +1278,7 @@ func (m *Validators) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 			}
 			if (iNdEx + skippy) > l {
@@ -1446,7 +1440,7 @@ func (m *EpochValidatorsWithAuction) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -1575,7 +1569,7 @@ func (m *EpochValidatorsWithAuction) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -1704,7 +1698,7 @@ func (m *EpochValidatorsWithAuction) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -1833,7 +1827,7 @@ func (m *EpochValidatorsWithAuction) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -1870,10 +1864,7 @@ func (m *EpochValidatorsWithAuction) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 			}
 			if (iNdEx + skippy) > l {
@@ -2054,7 +2045,7 @@ func (m *NodesCoordinatorRegistryWithAuction) Unmarshal(dAtA []byte) error {
 					if err != nil {
 						return err
 					}
-					if skippy < 0 {
+					if (skippy < 0) || (iNdEx+skippy) < 0 {
 						return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 					}
 					if (iNdEx + skippy) > postIndex {
@@ -2071,10 +2062,7 @@ func (m *NodesCoordinatorRegistryWithAuction) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthNodesCoordinatorRegistryWithAuction
 			}
 			if (iNdEx + skippy) > l {

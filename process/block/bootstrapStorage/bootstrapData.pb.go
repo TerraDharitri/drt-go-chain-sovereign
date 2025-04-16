@@ -26,7 +26,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
-//MiniBlocksInMeta is used to store all mini blocks hashes for a metablock hash
+// MiniBlocksInMeta is used to store all mini blocks hashes for a metablock hash
 type MiniBlocksInMeta struct {
 	MetaHash               []byte   `protobuf:"bytes,1,opt,name=MetaHash,proto3" json:"MetaHash,omitempty"`
 	MiniBlocksHashes       [][]byte `protobuf:"bytes,2,rep,name=MiniBlocksHashes,proto3" json:"MiniBlocksHashes,omitempty"`
@@ -90,7 +90,7 @@ func (m *MiniBlocksInMeta) GetIndexOfLastTxProcessed() []int32 {
 	return nil
 }
 
-//BootstrapHeaderInfo is used to store information about a header
+// BootstrapHeaderInfo is used to store information about a header
 type BootstrapHeaderInfo struct {
 	ShardId uint32 `protobuf:"varint,1,opt,name=ShardId,proto3" json:"ShardId,omitempty"`
 	Epoch   uint32 `protobuf:"varint,2,opt,name=Epoch,proto3" json:"Epoch,omitempty"`
@@ -154,7 +154,7 @@ func (m *BootstrapHeaderInfo) GetHash() []byte {
 	return nil
 }
 
-//PendingMiniBlocksInfo is used to store information about the number of pending miniblocks
+// PendingMiniBlocksInfo is used to store information about the number of pending miniblocks
 type PendingMiniBlocksInfo struct {
 	ShardID          uint32   `protobuf:"varint,1,opt,name=ShardID,proto3" json:"ShardID,omitempty"`
 	MiniBlocksHashes [][]byte `protobuf:"bytes,2,rep,name=MiniBlocksHashes,proto3" json:"MiniBlocksHashes,omitempty"`
@@ -1480,10 +1480,7 @@ func (m *MiniBlocksInMeta) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthBootstrapData
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthBootstrapData
 			}
 			if (iNdEx + skippy) > l {
@@ -1624,10 +1621,7 @@ func (m *BootstrapHeaderInfo) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthBootstrapData
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthBootstrapData
 			}
 			if (iNdEx + skippy) > l {
@@ -1728,10 +1722,7 @@ func (m *PendingMiniBlocksInfo) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthBootstrapData
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthBootstrapData
 			}
 			if (iNdEx + skippy) > l {
@@ -2056,10 +2047,7 @@ func (m *BootstrapData) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthBootstrapData
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthBootstrapData
 			}
 			if (iNdEx + skippy) > l {
@@ -2128,10 +2116,7 @@ func (m *RoundNum) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthBootstrapData
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthBootstrapData
 			}
 			if (iNdEx + skippy) > l {

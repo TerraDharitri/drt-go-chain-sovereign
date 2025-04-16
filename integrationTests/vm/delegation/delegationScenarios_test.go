@@ -2,13 +2,14 @@ package delegation
 
 import (
 	"bytes"
-	"crypto"
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
 	"math/big"
 	"strings"
 	"testing"
+
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-core/data/block"

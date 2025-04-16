@@ -8,7 +8,7 @@ import (
 
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-core/data/dcdt"
-	worldmock "github.com/TerraDharitri/drt-go-chain-scenarior/worldmock"
+	worldmock "github.com/TerraDharitri/drt-go-chain-scenario/worldmock"
 	"github.com/TerraDharitri/drt-go-chain-vm/executor"
 	contextmock "github.com/TerraDharitri/drt-go-chain-vm/mock/context"
 	"github.com/TerraDharitri/drt-go-chain-vm/testcommon"

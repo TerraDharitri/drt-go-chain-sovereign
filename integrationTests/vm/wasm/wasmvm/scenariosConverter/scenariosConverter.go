@@ -6,8 +6,8 @@ import (
 	"math/big"
 
 	"github.com/TerraDharitri/drt-go-chain-core/data/transaction"
-	"github.com/TerraDharitri/drt-go-chain-scenarior/scenario/exporter"
-	scenmodel "github.com/TerraDharitri/drt-go-chain-scenarior/scenario/model"
+	"github.com/TerraDharitri/drt-go-chain-scenario/scenario/exporter"
+	scenmodel "github.com/TerraDharitri/drt-go-chain-scenario/scenario/model"
 	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
 	"github.com/TerraDharitri/drt-go-chain/integrationTests/vm"
 	"github.com/TerraDharitri/drt-go-chain/process/factory"

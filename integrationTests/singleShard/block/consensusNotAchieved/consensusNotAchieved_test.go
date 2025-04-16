@@ -1,7 +1,7 @@
 package consensusNotAchieved
 
 import (
-	"crypto"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 	"encoding/json"
 	"fmt"
 	"testing"

@@ -1,9 +1,8 @@
 package mock
 
 import (
-	"crypto"
-
 	"github.com/TerraDharitri/drt-go-chain-core/core"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 )
 
 // PeerSignatureHandlerStub -

@@ -1,12 +1,13 @@
 package consensus_test
 
 import (
-	"crypto"
 	"errors"
 	"fmt"
 	"strings"
 	"testing"
 	"time"
+
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 	"github.com/TerraDharitri/drt-go-chain-core/data"

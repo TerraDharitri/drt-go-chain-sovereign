@@ -1,7 +1,8 @@
 package executingMiniblocks
 
 import (
-	"crypto"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
+
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"

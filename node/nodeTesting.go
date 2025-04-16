@@ -1,12 +1,13 @@
 package node
 
 import (
-	"crypto"
 	"errors"
 	"fmt"
 	"math/big"
 	"sync"
 	"sync/atomic"
+
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 
 	"github.com/TerraDharitri/drt-go-chain-core/core/check"
 	"github.com/TerraDharitri/drt-go-chain-core/core/partitioning"

@@ -5,8 +5,8 @@ import (
 
 	"github.com/TerraDharitri/drt-go-chain-core/data/transaction"
 	logger "github.com/TerraDharitri/drt-go-chain-logger"
-	"github.com/TerraDharitri/drt-go-chain-scenarior/scenario/exporter"
-	scenmodel "github.com/TerraDharitri/drt-go-chain-scenarior/scenario/model"
+	"github.com/TerraDharitri/drt-go-chain-scenario/scenario/exporter"
+	scenmodel "github.com/TerraDharitri/drt-go-chain-scenario/scenario/model"
 	vmcommon "github.com/TerraDharitri/drt-go-chain-vm-common"
 	"github.com/TerraDharitri/drt-go-chain/config"
 	"github.com/TerraDharitri/drt-go-chain/integrationTests/vm"

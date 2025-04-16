@@ -1,7 +1,7 @@
 package mock
 
 import (
-	"crypto"
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 
 	"github.com/TerraDharitri/drt-go-chain-core/core"
 )

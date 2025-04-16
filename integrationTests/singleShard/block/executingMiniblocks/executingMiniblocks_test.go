@@ -2,7 +2,9 @@ package executingMiniblocks
 
 import (
 	"bytes"
-	"crypto"
+
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
+
 	"fmt"
 	"math/big"
 	"testing"

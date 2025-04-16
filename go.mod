@@ -1,40 +1,40 @@
 module github.com/TerraDharitri/drt-go-chain
 
-replace (
-	github.com/TerraDharitri/drt-go-chain-core => github.com/TerraDharitri/drt-go-chain-core-sovereign v1.2.25-0.20250310112946-97d9a0f803bc
-	github.com/TerraDharitri/drt-go-chain-es-indexer => github.com/TerraDharitri/drt-go-chain-es-indexer-sovereign v1.7.17-0.20250310091256-70440107b782
-	github.com/TerraDharitri/drt-go-chain-vm-common => github.com/TerraDharitri/drt-go-chain-vm-common-sovereign v1.5.17-0.20250310160624-2027f24f8de5
-)
-
 go 1.20
 
+replace (
+	github.com/TerraDharitri/drt-go-chain-core => github.com/TerraDharitri/drt-go-chain-core-sovereign v0.0.1-s1.0.20250416100307-e8ac74767a8a
+	github.com/TerraDharitri/drt-go-chain-es-indexer => github.com/TerraDharitri/drt-go-chain-es-indexer-sovereign v0.0.1-s1
+	github.com/TerraDharitri/drt-go-chain-vm-common => github.com/TerraDharitri/drt-go-chain-vm-common-sovereign v0.0.1-s1
+)
+
 require (
-	github.com/beevik/ntp v1.3.0
+	github.com/TerraDharitri/drt-go-chain-communication v0.0.4
+	github.com/TerraDharitri/drt-go-chain-core v0.0.8-0.20250416065526-49f94b062817
+	github.com/TerraDharitri/drt-go-chain-crypto v0.0.5
+	github.com/TerraDharitri/drt-go-chain-es-indexer v0.0.0-00010101000000-000000000000
+	github.com/TerraDharitri/drt-go-chain-logger v0.0.4
+	github.com/TerraDharitri/drt-go-chain-scenario v0.0.5
+	github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.0-20250416085244-115c8cd8f804
+	github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.0-20250408121155-80d67ffe7955
+	github.com/TerraDharitri/drt-go-chain-storage v0.0.7
+	github.com/TerraDharitri/drt-go-chain-vm v0.0.4
+	github.com/TerraDharitri/drt-go-chain-vm-common v0.0.4
+	github.com/TerraDharitri/drt-go-chain-vm-v1 v0.0.3
+	github.com/TerraDharitri/drt-go-chain-vm-v2 v0.0.2
+	github.com/TerraDharitri/drt-go-chain-vm-v3 v0.0.3
+	github.com/TerraDharitri/drt-go-sdk-abi v0.0.0-20250416091710-5d2d0ab01902
+	github.com/beevik/ntp v1.4.3
 	github.com/davecgh/go-spew v1.1.1
-	github.com/gin-contrib/cors v1.4.0
-	github.com/gin-contrib/pprof v1.4.0
+	github.com/gin-contrib/cors v1.7.2
+	github.com/gin-contrib/pprof v1.5.0
 	github.com/gin-gonic/gin v1.10.0
 	github.com/gizak/termui/v3 v3.1.0
 	github.com/gogo/protobuf v1.3.2
-	github.com/google/gops v0.3.18
+	github.com/google/gops v0.3.19
 	github.com/gorilla/websocket v1.5.0
-	github.com/klauspost/cpuid/v2 v2.2.7
+	github.com/klauspost/cpuid/v2 v2.2.9
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/TerraDharitri/drt-go-chain-communication v1.1.1
-	github.com/TerraDharitri/drt-go-chain-core v1.2.25-0.20250206111825-25fbb1b4851c
-	github.com/TerraDharitri/drt-go-chain-crypto v1.2.12
-	github.com/TerraDharitri/drt-go-chain-es-indexer v1.7.17-0.20250217145507-ddd47d85cfcd
-	github.com/TerraDharitri/drt-go-chain-logger v1.0.15
-	github.com/TerraDharitri/drt-go-chain-scenarior v1.4.4
-	github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.0-20250206093614-af9e9aa908ba
-	github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.0-20230929085947-df9b345f49ac
-	github.com/TerraDharitri/drt-go-chain-storage v1.0.19
-	github.com/TerraDharitri/drt-go-chain-vm-common v1.5.17-0.20241119132002-2fa80c5ec516
-	github.com/TerraDharitri/drt-go-chain-vm v1.5.37
-	github.com/TerraDharitri/drt-go-chain-vm-v1 v1.2.68
-	github.com/TerraDharitri/drt-go-chain-vm-v2 v1.3.69
-	github.com/TerraDharitri/drt-go-chain-vm-v3 v1.4.98
-	github.com/TerraDharitri/drt-go-sdk-abi v0.3.0
 	github.com/pelletier/go-toml v1.9.3
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.14.0
@@ -42,10 +42,13 @@ require (
 	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli v1.22.16
 	golang.org/x/crypto v0.31.0
+	google.golang.org/grpc v1.61.0-dev
 	gopkg.in/go-playground/validator.v8 v8.18.2
 )
 
 require (
+	github.com/TerraDharitri/concurrent-map v0.0.2 // indirect
+	github.com/TerraDharitri/drt-go-bigint v0.0.3 // indirect
 	github.com/TwiN/go-color v1.1.0 // indirect
 	github.com/awalterschulze/gographviz v2.0.3+incompatible // indirect
 	github.com/benbjohnson/clock v1.3.5 // indirect
@@ -53,8 +56,8 @@ require (
 	github.com/btcsuite/btcd/btcec/v2 v2.3.2 // indirect
 	github.com/btcsuite/btcd/btcutil v1.1.3 // indirect
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1 // indirect
-	github.com/bytedance/sonic v1.11.6 // indirect
-	github.com/bytedance/sonic/loader v0.1.1 // indirect
+	github.com/bytedance/sonic v1.12.6 // indirect
+	github.com/bytedance/sonic/loader v0.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
 	github.com/cloudwego/iasm v0.2.0 // indirect
@@ -142,8 +145,6 @@ require (
 	github.com/multiformats/go-multihash v0.2.3 // indirect
 	github.com/multiformats/go-multistream v0.4.1 // indirect
 	github.com/multiformats/go-varint v0.0.7 // indirect
-	github.com/TerraDharitri/concurrent-map v0.1.4 // indirect
-	github.com/TerraDharitri/drt-go-bigint v1.0.0 // indirect
 	github.com/nsf/termbox-go v0.0.0-20190121233118-02980233997d // indirect
 	github.com/onsi/ginkgo/v2 v2.9.7 // indirect
 	github.com/opencontainers/runtime-spec v1.0.2 // indirect
@@ -193,11 +194,10 @@ require (
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 	gonum.org/v1/gonum v0.11.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20231002182017-d307bd883b97 // indirect
-	google.golang.org/grpc v1.60.1 // indirect
 	google.golang.org/protobuf v1.36.3 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/blake3 v1.2.1 // indirect
 )
 
-replace github.com/gogo/protobuf => github.com/TerraDharitri/protobuf v1.3.2
+replace github.com/gogo/protobuf => github.com/TerraDharitri/protobuf v0.0.1

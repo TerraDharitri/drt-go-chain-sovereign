@@ -1,9 +1,10 @@
 package process
 
 import (
-	"crypto"
 	"errors"
 	"testing"
+
+	crypto "github.com/TerraDharitri/drt-go-chain-crypto"
 
 	"github.com/TerraDharitri/drt-go-chain/vm"
 	"github.com/TerraDharitri/drt-go-chain/vm/mock"

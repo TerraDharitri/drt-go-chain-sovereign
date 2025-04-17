@@ -1,8 +1,6 @@
 name: Build and smoke test
 
 on:
-  push:
-    branches: [prem]
   pull_request:
     branches: [main, rc/*]
   workflow_dispatch:

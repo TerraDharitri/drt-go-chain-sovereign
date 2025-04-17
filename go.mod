@@ -15,15 +15,15 @@ require (
 	github.com/TerraDharitri/drt-go-chain-es-indexer v0.0.0-00010101000000-000000000000
 	github.com/TerraDharitri/drt-go-chain-logger v0.0.4
 	github.com/TerraDharitri/drt-go-chain-scenario v0.0.5
-	github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.0-20250416085244-115c8cd8f804
-	github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.0-20250408121155-80d67ffe7955
+	github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.1
+	github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.1
 	github.com/TerraDharitri/drt-go-chain-storage v0.0.7
 	github.com/TerraDharitri/drt-go-chain-vm v0.0.4
 	github.com/TerraDharitri/drt-go-chain-vm-common v0.0.4
 	github.com/TerraDharitri/drt-go-chain-vm-v1 v0.0.3
 	github.com/TerraDharitri/drt-go-chain-vm-v2 v0.0.2
 	github.com/TerraDharitri/drt-go-chain-vm-v3 v0.0.3
-	github.com/TerraDharitri/drt-go-sdk-abi v0.0.0-20250416091710-5d2d0ab01902
+	github.com/TerraDharitri/drt-go-sdk-abi v0.0.1
 	github.com/beevik/ntp v1.4.3
 	github.com/davecgh/go-spew v1.1.1
 	github.com/gin-contrib/cors v1.7.2

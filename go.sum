@@ -26,10 +26,10 @@ github.com/TerraDharitri/drt-go-chain-logger v0.0.4 h1:l9xMFJwiEb4SoFVNbRc8eZldU
 github.com/TerraDharitri/drt-go-chain-logger v0.0.4/go.mod h1:9uNDsynRp45cAAUuDBkv4ahCuH7fA/rHy5rkH5OzU2A=
 github.com/TerraDharitri/drt-go-chain-scenario v0.0.5 h1:quR26TrcY3hVF8TjvwKR63PBqpEBa4+rBzEG4NpmhVY=
 github.com/TerraDharitri/drt-go-chain-scenario v0.0.5/go.mod h1:jFZvRh+sui1BtBTLuEDkmT0jL9PdreSdaQHSU7dSsig=
-github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.0-20250416085244-115c8cd8f804 h1:YiVC5wNlNLR2BZMn4i+Qa80ZJF8E8Qusq6WAnB6Xgk8=
-github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.0-20250416085244-115c8cd8f804/go.mod h1:FTaKqtMVhR2vM/NGeayYtTGQtHZZFzutFsVsz5WjRC4=
-github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.0-20250408121155-80d67ffe7955 h1:quOWOJga7MuVB151hbVVA2N6xxQTL6QQHzXOl03cj2Y=
-github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.0-20250408121155-80d67ffe7955/go.mod h1:MImuw0mYQFpzZGetjhy+6HocoLj72wOxGFWAb7xQAdw=
+github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.1 h1:ntmz3HKAkKmzG2bJH19RdoRRd2OTh34KbjR4xojS++E=
+github.com/TerraDharitri/drt-go-chain-sovereign-bridge v0.0.1/go.mod h1:FTaKqtMVhR2vM/NGeayYtTGQtHZZFzutFsVsz5WjRC4=
+github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.1 h1:2wQfVN6kvVvQmLwtPpDPi7JPu9LR6f5H8E/q35yP3Hc=
+github.com/TerraDharitri/drt-go-chain-sovereign-notifier v0.0.1/go.mod h1:MImuw0mYQFpzZGetjhy+6HocoLj72wOxGFWAb7xQAdw=
 github.com/TerraDharitri/drt-go-chain-storage v0.0.7 h1:DA6d0aAmC193XeOMb+n02Kx6tFpCyvkEjl7EpIFIASU=
 github.com/TerraDharitri/drt-go-chain-storage v0.0.7/go.mod h1:6oxrs72hbpHn6dR3dUrNfhhUIjXuUWEibOGOnI5F9tY=
 github.com/TerraDharitri/drt-go-chain-vm v0.0.4 h1:LZ1jFoP4Yv0TnAJm+R4bGASrngzuNRZ7hfTAOkFGJRk=
@@ -42,8 +42,8 @@ github.com/TerraDharitri/drt-go-chain-vm-v2 v0.0.2 h1:X6OLdNn9nv/qxlEtMuJLHZTImD
 github.com/TerraDharitri/drt-go-chain-vm-v2 v0.0.2/go.mod h1:Ubtp/JYuK330gpHvnzbkVzWuSAS2pq/9a7FmWBvkeOo=
 github.com/TerraDharitri/drt-go-chain-vm-v3 v0.0.3 h1:vQQ2Cb/NlbfAMqk0ZLfWb8tXF5DzbyKG6Er/UBHjf6g=
 github.com/TerraDharitri/drt-go-chain-vm-v3 v0.0.3/go.mod h1:Cpi2e/wS5lQ2kAMEiVIPwSysH5TADI3gSrptZenTH6E=
-github.com/TerraDharitri/drt-go-sdk-abi v0.0.0-20250416091710-5d2d0ab01902 h1:qHQKjkAW1NL6rPwG0sBRRiwgyjpPr/aix3mUTIak2KQ=
-github.com/TerraDharitri/drt-go-sdk-abi v0.0.0-20250416091710-5d2d0ab01902/go.mod h1:Fe+Dp1k84rwzG3kClgSLMo3sm7EfoukGr/R3oBE28Dk=
+github.com/TerraDharitri/drt-go-sdk-abi v0.0.1 h1:WFQNvxhTbObOX8bFpyveCNpyycRUiCpFYk0nyVP0O+w=
+github.com/TerraDharitri/drt-go-sdk-abi v0.0.1/go.mod h1:Fe+Dp1k84rwzG3kClgSLMo3sm7EfoukGr/R3oBE28Dk=
 github.com/TerraDharitri/protobuf v0.0.1 h1:cxiQ6ZZLcavw0S/rPeGWl6tTkVn38r6Qo3FEL+NVWSI=
 github.com/TerraDharitri/protobuf v0.0.1/go.mod h1:nR0KaR7D76i4HeO5ynVn0k2AhPtkjlgURJ3/w2MSCtg=
 github.com/TwiN/go-color v1.1.0 h1:yhLAHgjp2iAxmNjDiVb6Z073NE65yoaPlcki1Q22yyQ=

@@ -18,7 +18,7 @@ import (
 
 const (
 	issuePaymentCost         = "50000000000000000" // dcdt-safe contract without header-verifier checks
-	dcdtSafeWasmPath         = "testdata/mvx-dcdt-safe.wasm"
+	dcdtSafeWasmPath         = "testdata/drt-dcdt-safe.wasm"
 	enshrineDcdtSafeWasmPath = "testdata/enshrine-dcdt-safe.wasm"
 	//enshrine dcdt-safe contract without checks for prefix or issue cost paid for new tokens
 	simpleEnshrineDcdtSafeWasmPath = "testdata/simple-enshrine-dcdt-safe.wasm"

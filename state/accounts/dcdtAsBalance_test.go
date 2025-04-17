@@ -31,7 +31,7 @@ func TestNewDCDTAsBalance(t *testing.T) {
 		require.Nil(t, dcdtBalance)
 	})
 	t.Run("invalid base token, should return error", func(t *testing.T) {
-		dcdtBalance, err := NewDCDTAsBalance("MvX-1c4f2a", &marshallerMock.MarshalizerMock{})
+		dcdtBalance, err := NewDCDTAsBalance("DrT-1c4f2a", &marshallerMock.MarshalizerMock{})
 		require.Equal(t, errorsDrt.ErrInvalidBaseToken, err)
 		require.Nil(t, dcdtBalance)
 	})

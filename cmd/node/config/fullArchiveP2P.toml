@@ -53,7 +53,7 @@
     # To connect to other nodes, those nodes should have at least one common protocol string
     ProtocolIDs = [
         "/drt/kad/1.0.0",
-        "mvx-full-archive",
+        "drt-full-archive",
     ]
 
     # InitialPeerList represents the list of strings of some known nodes that will bootstrap this node

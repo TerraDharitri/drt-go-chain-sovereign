@@ -70,10 +70,10 @@ func TestRelayedAsyncDCDTCallShouldWork(t *testing.T) {
 	utils.CheckDCDTBalance(t, testContext, firstSCAddress, token, big.NewInt(2500))
 	utils.CheckDCDTBalance(t, testContext, secondSCAddress, token, big.NewInt(2500))
 
-	expectedSenderBalance := big.NewInt(98219900)
+	expectedSenderBalance := big.NewInt(98248940)
 	utils.TestAccount(t, testContext.Accounts, relayerAddr, 1, expectedSenderBalance)
 
-	expectedAccumulatedFees := big.NewInt(1780100)
+	expectedAccumulatedFees := big.NewInt(1751060)
 	accumulatedFees := testContext.TxFeeHandler.GetAccumulatedFees()
 	require.Equal(t, expectedAccumulatedFees, accumulatedFees)
 }

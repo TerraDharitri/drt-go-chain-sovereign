@@ -69,7 +69,7 @@ func TestMempoolHost_GetTransferredValue(t *testing.T) {
 		value := host.GetTransferredValue(&transaction.Transaction{
 			SndAddr: testscommon.TestPubKeyAlice,
 			RcvAddr: testscommon.TestPubKeyAlice,
-			Data:    []byte("MultiDCDTNFTTransfer@8049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f8@03@4e46542d313233343536@0a@01@544553542d393837363534@01@01@45474c442d303030303030@@0de0b6b3a7640000"),
+			Data:    []byte("MultiDCDTNFTTransfer@8049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f8@03@4e46542d313233343536@0a@01@544553542d393837363534@01@01@524557412d303030303030@@0de0b6b3a7640000"),
 		})
 		require.Equal(t, big.NewInt(1000000000000000000), value)
 	})
@@ -78,7 +78,7 @@ func TestMempoolHost_GetTransferredValue(t *testing.T) {
 		value := host.GetTransferredValue(&transaction.Transaction{
 			SndAddr: testscommon.TestPubKeyAlice,
 			RcvAddr: testscommon.TestPubKeyAlice,
-			Data:    []byte("MultiDCDTNFTTransfer@00000000000000000500b9353fe8407f87310c87e12fa1ac807f0485da39d152@03@4e46542d313233343536@01@01@4e46542d313233343536@2a@01@45474c442d303030303030@@0de0b6b3a7640000@64756d6d79@07"),
+			Data:    []byte("MultiDCDTNFTTransfer@00000000000000000500b9353fe8407f87310c87e12fa1ac807f0485da39d152@03@4e46542d313233343536@01@01@4e46542d313233343536@2a@01@524557412d303030303030@@0de0b6b3a7640000@64756d6d79@07"),
 		})
 		require.Equal(t, big.NewInt(1000000000000000000), value)
 	})
@@ -165,7 +165,7 @@ func createMultiDCDTNFTTransfersWithNativeTransfer(numTransactions int, valueMul
 	for i := 0; i < numTransactions; i++ {
 		nativeValue := big.NewInt(int64(i) * valueMultiplier)
 		data := fmt.Sprintf(
-			"MultiDCDTNFTTransfer@8049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f8@03@4e46542d313233343536@0a@01@544553542d393837363534@01@01@45474c442d303030303030@@%s",
+			"MultiDCDTNFTTransfer@8049d639e5a6980d1cd2392abcce41029cda74a1563523a202f09641cc2618f8@03@4e46542d313233343536@0a@01@544553542d393837363534@01@01@524557412d303030303030@@%s",
 			hex.EncodeToString(nativeValue.Bytes()),
 		)
 

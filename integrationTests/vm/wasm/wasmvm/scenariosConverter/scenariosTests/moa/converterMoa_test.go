@@ -1,4 +1,4 @@
-package Benchmark_ScenariosConverter_Mex
+package Benchmark_ScenariosConverter_Moa
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	mc "github.com/TerraDharitri/drt-go-chain/integrationTests/vm/wasm/wasmvm/scenariosConverter"
 )
 
-func TestScenariosConverter_MexState(t *testing.T) {
+func TestScenariosConverter_MoaState(t *testing.T) {
 	if testing.Short() {
 		t.Skip("this is not a short test")
 	}

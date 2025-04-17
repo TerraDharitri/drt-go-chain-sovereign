@@ -89,7 +89,7 @@ updateSeednodeConfig() {
 prepareElasticsearch() {
   echo "Starting Elasticsearch Docker container..."
   pwd
-  ES_CONTAINER="mvx-elastic"
+  ES_CONTAINER="drt-elastic"
   if [ -n "$(docker ps -aqf name=$ES_CONTAINER)" ]; then
     ES_CONTAINER_ID=$(docker start $ES_CONTAINER)
   else

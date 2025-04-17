@@ -70,10 +70,10 @@ func TestAsyncDCDTCallShouldWork(t *testing.T) {
 	utils.CheckDCDTBalance(t, testContext, firstSCAddress, token, big.NewInt(2500))
 	utils.CheckDCDTBalance(t, testContext, secondSCAddress, token, big.NewInt(2500))
 
-	expectedSenderBalance := big.NewInt(98223470)
+	expectedSenderBalance := big.NewInt(98252510)
 	utils.TestAccount(t, testContext.Accounts, sndAddr, 1, expectedSenderBalance)
 
-	expectedAccumulatedFees := big.NewInt(1776530)
+	expectedAccumulatedFees := big.NewInt(1747490)
 	accumulatedFees := testContext.TxFeeHandler.GetAccumulatedFees()
 	require.Equal(t, expectedAccumulatedFees, accumulatedFees)
 }

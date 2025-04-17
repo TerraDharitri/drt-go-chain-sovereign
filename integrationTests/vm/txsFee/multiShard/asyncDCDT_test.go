@@ -99,10 +99,10 @@ func TestAsyncDCDTTransferWithSCCallShouldWork(t *testing.T) {
 	_, err = testContextSender.Accounts.Commit()
 	require.Nil(t, err)
 
-	expectedAccumulatedFees = big.NewInt(1146530)
+	expectedAccumulatedFees = big.NewInt(1134360)
 	require.Equal(t, expectedAccumulatedFees, testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
 
-	developerFees := big.NewInt(114653)
+	developerFees := big.NewInt(113436)
 	require.Equal(t, developerFees, testContextFirstContract.TxFeeHandler.GetDeveloperFees())
 
 	utils.CheckDCDTBalance(t, testContextFirstContract, firstSCAddress, token, big.NewInt(2500))
@@ -116,10 +116,10 @@ func TestAsyncDCDTTransferWithSCCallShouldWork(t *testing.T) {
 
 	utils.CheckDCDTBalance(t, testContextSecondContract, secondSCAddress, token, big.NewInt(2500))
 
-	accumulatedFee := big.NewInt(540660)
+	accumulatedFee := big.NewInt(535960)
 	require.Equal(t, accumulatedFee, testContextSecondContract.TxFeeHandler.GetAccumulatedFees())
 
-	developerFees = big.NewInt(54066)
+	developerFees = big.NewInt(53596)
 	require.Equal(t, developerFees, testContextSecondContract.TxFeeHandler.GetDeveloperFees())
 
 	intermediateTxs = testContextSecondContract.GetIntermediateTransactions(t)
@@ -127,7 +127,7 @@ func TestAsyncDCDTTransferWithSCCallShouldWork(t *testing.T) {
 
 	utils.ProcessSCRResult(t, testContextFirstContract, intermediateTxs[1], vmcommon.Ok, nil)
 
-	require.Equal(t, big.NewInt(4458400), testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
+	require.Equal(t, big.NewInt(4463100), testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
 }
 
 func TestAsyncDCDTTransferWithSCCallSecondContractAnotherToken(t *testing.T) {
@@ -212,10 +212,10 @@ func TestAsyncDCDTTransferWithSCCallSecondContractAnotherToken(t *testing.T) {
 	_, err = testContextSender.Accounts.Commit()
 	require.Nil(t, err)
 
-	expectedAccumulatedFees = big.NewInt(1146530)
+	expectedAccumulatedFees = big.NewInt(1134360)
 	require.Equal(t, expectedAccumulatedFees, testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
 
-	developerFees := big.NewInt(114653)
+	developerFees := big.NewInt(113436)
 	require.Equal(t, developerFees, testContextFirstContract.TxFeeHandler.GetDeveloperFees())
 
 	utils.CheckDCDTBalance(t, testContextFirstContract, firstSCAddress, token, big.NewInt(2500))
@@ -228,7 +228,7 @@ func TestAsyncDCDTTransferWithSCCallSecondContractAnotherToken(t *testing.T) {
 
 	utils.CheckDCDTBalance(t, testContextSecondContract, secondSCAddress, token, big.NewInt(0))
 
-	accumulatedFee := big.NewInt(2764130)
+	accumulatedFee := big.NewInt(2788470)
 	require.Equal(t, accumulatedFee, testContextSecondContract.TxFeeHandler.GetAccumulatedFees())
 
 	developerFees = big.NewInt(0)
@@ -239,5 +239,5 @@ func TestAsyncDCDTTransferWithSCCallSecondContractAnotherToken(t *testing.T) {
 
 	utils.ProcessSCRResult(t, testContextFirstContract, intermediateTxs[0], vmcommon.Ok, nil)
 
-	require.Equal(t, big.NewInt(2234930), testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
+	require.Equal(t, big.NewInt(2210590), testContextFirstContract.TxFeeHandler.GetAccumulatedFees())
 }

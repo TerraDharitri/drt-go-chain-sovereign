@@ -192,5 +192,5 @@ func TestAsyncDCDTTransfer(t *testing.T) {
 
 	res, err := testContext.TxCostHandler.ComputeTransactionGasLimit(tx)
 	require.Nil(t, err)
-	require.Equal(t, uint64(177653), res.GasUnits)
+	require.Equal(t, uint64(174749), res.GasUnits)
 }
